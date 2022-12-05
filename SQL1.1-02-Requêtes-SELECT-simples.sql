@@ -2,3 +2,9 @@
 
 
 /* RESULTAT ==> 7 lignes / 100 Market Street */
+
+SELECT City, addressLine1 FROM `offices`
+ORDER BY country DESC;
+
+SELECT City, addressLine1 FROM `offices` 
+ORDER BY state DESC;
