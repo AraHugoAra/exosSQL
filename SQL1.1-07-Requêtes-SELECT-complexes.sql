@@ -11,7 +11,7 @@ SELECT customers.customerNumber, customerName, country, SUM(amount) AS totalCred
 /* Le montant total de chaque commande (numéro et date) des clients New-Yorkais (nom) trié par nom du client puis par date de commande */
 /* RESULTAT ==> 16 lignes / Classic Legends / 10115 / 21665.98 */
 
-SELECT SUM(orderdetails.priceEach * orderdetails.quantityOrdered) AS totalAmount, orders.orderNumber, orders.orderDate, customerName FROM `customers`
+SELECT ROUND(SUM(orderdetails.priceEach * orderdetails.quantityOrdered), 2) AS totalAmount, orders.orderNumber, orders.orderDate, customerName FROM `customers`
 	JOIN orders ON customers.customerNumber = orders.customerNumber
     JOIN orderdetails ON orderdetails.orderNumber = orders.orderNumber
     	WHERE city LIKE "nyc"
